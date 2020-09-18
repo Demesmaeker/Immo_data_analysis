@@ -8,75 +8,77 @@ for x in df.columns.tolist():
 
     
     
-def menu():
+def menu(liste_choix):
     
     y = -1
-    
     choix_clean = []
     
-    while y != "q":
-        
-        print(nom_colonne)
-        y = input("que voulez-vous clean ? ( q => sortir  // a => tous)")
-        try:
-            y = int(y)
-        except:
-            if y == "a":
-                for x in range(0,17):
-                    choix_clean.append(x)
-                break
-            elif y == "q":
-                break
-            print("entrer une donnée valide")
+    if liste_choix == None:   
+        while y != "q":
 
-
+            print(nom_colonne)
+            y = input("que voulez-vous clean ? ( q => sortir  // a => tous)")
+            try:
+                y = int(y)
+            except:
+                if y == "a":
+                    for x in range(0,17):
+                        choix_clean.append(x)
+                    break
+                elif y == "q":
+                    break
+                print("entrer une donnée valide")
         
-        if y != "q":
-            choix_clean.append(y)
-    
+            if y != "q":
+                choix_clean.append(y)
+    else:
+        for elem in liste_choix:
+            choix_clean.append(elem)
+       
     return choix_clean
 
 
 
-def clean( df):
+def clean(df, liste_choix=None):
     
     df = pre_clean(df)
-    choix_clean = menu()
+    choix_clean = menu(liste_choix)
     
     for x in choix_clean:
         
         print(nom_colonne[x] + " : nbr ligne = " + str(df.shape[0]))
 
         if x == 0: 
-            pass
-        elif x == 1: 
             df['province'] = df['locality'].apply(get_province)
             df["region"] = df['province'].apply(get_region)
+        elif x == 1: pass
         elif x == 2: pass
         elif x == 3:             
             df = df[(df.price != "no price")]
             df = df[df["price"] > 50000]
-            print("removed price = 0")
-            print("removed price under 50 000")
+            # print("removed price = 0")
+            # print("removed price under 50 000")
         elif x == 4: pass
         elif x == 5: 
             df = df[(df.house_area != 0)]
-            print("removed house area = 0")
+            # print("removed house area = 0")
         elif x == 6: pass
         elif x == 7: pass
         elif x == 8: 
             df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0))]
-            print("removed terrace that exist = 0")
+            # print("removed terrace that exist = 0")
         elif x == 9: pass
         elif x == 10: 
             df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0))]
+            # print("removed garden that exist = 0")
         elif x == 11: pass
         elif x == 12: 
+            df[(df["type_of_property"] == 'apartment') & (df["surface_of_the_land"] == 0)].surface_of_the_land = df['house_area'] + df['terrace_area'] + df['garden_area']
             df = df[df.surface_of_the_land != 0]
-            print("removed surface of the land = 0")
+            # print("removed surface of the land = 0")
         elif x == 13: 
             df = df[df.number_of_facades != 0]
-            print("removed facade = 0")
+            # print("removed facade = 0")
         elif x == 14: pass
         elif x == 15:
             df = df[df.state_of_the_building != 0]
@@ -105,7 +107,6 @@ def pre_clean(df):
     df = df.replace("None", 0)
     df.drop_duplicates()
     df = df.replace("no price", 0)
-    print("changed \"no price\" to 0")
     df['garden_area'] = pd.to_numeric(df['garden_area'])
     df['house_area'] = pd.to_numeric(df['house_area'])
     df['terrace_area'] = pd.to_numeric(df['terrace_area'])
@@ -114,14 +115,14 @@ def pre_clean(df):
     df['price'] = pd.to_numeric(df['price'])
     df = df.replace("to be done up", "to renovate")
     df = df.replace("to restore", "to renovate")
-    df[(df["type_of_property"] == 'apartment') & (df["surface_of_the_land"] == 0)].surface_of_the_land = df['house_area'] + df['terrace_area'] + df['garden_area']
+
     
-    
-    print("3 useless row deleted")
-    print("None replaced by 0")
-    print("duplicated row cleaned")
-    print("string value changed to numeric")
-    print("correlled renovation statut")
+    # print("changed \"no price\" to 0")
+    # print("3 useless row deleted")
+    # print("None replaced by 0")
+    # print("duplicated row cleaned")
+    # print("string value changed to numeric")
+    # print("correlled renovation statut")
     
     return df
 
