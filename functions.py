@@ -1,7 +1,13 @@
-import Pandas as pd
+import pandas as pd
 df = pd.read_csv("dataset_house_apartment.csv")
 
 
+nom_colonne = {}
+for x in df.columns.tolist():
+    nom_colonne[df.columns.tolist().index(x)] = x
+
+    
+    
 def menu():
     
     y = -1
