@@ -59,30 +59,40 @@ def clean(df, liste_choix=None):
             # print("removed price = 0")
             # print("removed price under 50 000")
         elif x == 4: pass
-        elif x == 5: 
+        elif x == 5: pass
+        elif x == 6:
             df = df[(df.house_area != 0)]
             # print("removed house area = 0")
-        elif x == 6: pass
         elif x == 7: pass
-        elif x == 8: 
+        elif x == 8: pass
+        elif x == 9: pass
+        elif x == 10:
             df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0))]
             # print("removed terrace that exist = 0")
-        elif x == 9: pass
-        elif x == 10: 
+        elif x == 11:
+            df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0))]
+            # print("removed terrace that exist = 0")
+        elif x == 12: 
+            df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0))]
+            # print("removed garden that exist = 0")
+        elif x == 13: 
             df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0))]
             # print("removed garden that exist = 0")
         elif x == 11: pass
-        elif x == 12: 
+        elif x == 12: pass
+        elif x == 13: pass
+        elif x == 14: 
             df[(df["type_of_property"] == 'apartment') & (df["surface_of_the_land"] == 0)].surface_of_the_land = df['house_area'] + df['terrace_area'] + df['garden_area']
             df = df[df.surface_of_the_land != 0]
             # print("removed surface of the land = 0")
-        elif x == 13: 
+        elif x == 15: pass
+        elif x == 16: 
             df = df[df.number_of_facades != 0]
             # print("removed facade = 0")
-        elif x == 14: pass
-        elif x == 15:
+        elif x == 17: pass
+        elif x == 18:
             df = df[df.state_of_the_building != 0]
-        elif x == 16:
+        elif x == 19:
             df = df[df.construction_year != 0]
             
         else:
