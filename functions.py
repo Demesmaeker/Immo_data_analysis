@@ -66,23 +66,23 @@ def clean(df, liste_choix=None):
         elif x == 7: pass
         elif x == 8: pass
         elif x == 9: pass
-        elif x == 10:
-            df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0))]
+        elif x == 10: pass
+            #df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0))]
             # print("removed terrace that exist = 0")
         elif x == 11:
-            df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0))]
+            df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0 & (df.terrace_area != 1))]
             # print("removed terrace that exist = 0")
-        elif x == 12: 
-            df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0))]
+        elif x == 12: pass
+            #df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0))]
             # print("removed garden that exist = 0")
         elif x == 13: 
-            df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0))]
+            df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0 & (df.garden_area != 1))]
             # print("removed garden that exist = 0")
         elif x == 11: pass
         elif x == 12: pass
         elif x == 13: pass
         elif x == 14: 
-            df[(df["type_of_property"] == 'apartment') & (df["surface_of_the_land"] == 0)].surface_of_the_land = df['house_area'] + df['terrace_area'] + df['garden_area']
+            df.loc[df['surface_of_the_land'] == 0, 'surface_of_the_land'] = df['house_area'] + df['terrace_area'] + df['garden_area']
             df = df[df.surface_of_the_land != 0]
             # print("removed surface of the land = 0")
         elif x == 15: pass
