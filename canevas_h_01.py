@@ -70,28 +70,29 @@ apart_province_garden.plot.bar(x = 'province',
 
 
 
+house_loc_gard_area = locality_garden[locality_garden['type_of_property'] == 'house']
+house_loc_gard_area = house_loc_gard_area.groupby('province').garden_area.describe()
+house_loc_gard_area.reset_index(level=0, inplace=True)
+house_loc_gard_area
 
-house_loc_terr_area = locality_home_terr_area[locality_home_terr_area['type_of_property'] == 'house']
-house_loc_terr_area = house_loc_terr_area.groupby('province').terrace_area.describe()
-house_loc_terr_area.reset_index(level=0, inplace=True)
-house_loc_terr_area
-
-house_loc_terr_area.plot.bar(x = 'province', 
+house_loc_gard_area.plot.bar(x = 'province', 
                         y = ['min', 'mean', '75%'],
                        figsize=(15,10),
-                       title="min, mean and 75% of the house's terrace's area by province")
+                       title="min, mean and 75% of the house's garden's area by province")
+
+apart_loc_gard_area = locality_garden[locality_garden['type_of_property'] == 'apartment']
+apart_loc_gard_area = apart_loc_gard_area.groupby('province').garden_area.describe()
+apart_loc_gard_area.reset_index(level=0, inplace=True)
+apart_loc_gard_area
 
 
-apart_loc_terr_area = locality_terrace[locality_terrace['type_of_property'] == 'apartment']
-apart_loc_terr_area = apart_loc_terr_area.groupby('province').terrace_area.describe()
-apart_loc_terr_area.reset_index(level=0, inplace=True)
-apart_loc_terr_area
-
-
-apart_loc_terr_area.plot.bar(x = 'province', 
+apart_loc_gard_area.plot.bar(x = 'province', 
                         y = ['min', 'mean', '75%'],
                        figsize=(15,10),
-                       title="min, mean and 75% of the apartment's terrace's area by province")
+                       title="min, mean and 75% of the apartment's garden's area by province")
+
+
+
 
 
 
