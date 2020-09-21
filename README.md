@@ -13,7 +13,9 @@ For this second group project, we were 3 :
 ### Methodology
 **Cleaning** : the three of us work together, 3 for 1 computer, to get the best of what we can do.
 We came up with a kind of menu, to be able to clean only the columns whe were currently working with without a loss of data due to deletions of incomplete/not reliable rows when there is no need. A such, we wera able to work with much more datas, but taking only the ones reliables for what we were doing.
+
 **Analysis** : for this, since there was only two days left, we each took something different to do, so as to have as much analysed datas, and regularly going back together to show/see wat was done, and discuss the following steps.
+
 **Conclusions** : WIP but surely the three of us together.
 
 
