@@ -55,9 +55,11 @@ All the work done was made during the BeCode's AI's formation 2020-2021.
 - Cleaning :
     - [functions.py](https://github.com/Demesmaeker/Immo_data_analysis/blob/master/functions.py)
 - Analysis :
-    - [The price with other variables](https://github.com/Demesmaeker/Immo_data_analysis/blob/master/Price_Variable.ipynb)
+    - [The price seen with other variables](https://github.com/Demesmaeker/Immo_data_analysis/blob/master/Price_Variable.ipynb)
     - [The price correlation](https://github.com/Demesmaeker/Immo_data_analysis/blob/master/Correlations%20price-variables.ipynb)
-    - [The province and other variables](https://github.com/Demesmaeker/Immo_data_analysis/blob/master/Comparisons%20between%20variables%20(no%20prices).ipynb)
+        - [General](http://localhost:8888/notebooks/git-env/Immo_data_analysis/Correlations%20price-variables.ipynb#General)
+        - [Precisions](http://localhost:8888/notebooks/git-env/Immo_data_analysis/Correlations%20price-variables.ipynb#Precisions)
+    - [The province seen with other variables](https://github.com/Demesmaeker/Immo_data_analysis/blob/master/Comparisons%20between%20variables%20(no%20prices).ipynb)
 - Conclusions :
     - [main.ipynb](https://github.com/Demesmaeker/Immo_data_analysis/blob/master/main.ipynb)
 
