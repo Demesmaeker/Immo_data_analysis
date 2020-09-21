@@ -70,13 +70,13 @@ def clean(df, liste_choix=None):
             #df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0))]
             # print("removed terrace that exist = 0")
         elif x == 11:
-            df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0 & (df.terrace_area != 1))]
+            df = df[(df.terrace == 0) | ((df.terrace == 1) & (df.terrace_area != 0 & df.terrace_area != 1))]
             # print("removed terrace that exist = 0")
         elif x == 12: pass
             #df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0))]
             # print("removed garden that exist = 0")
         elif x == 13: 
-            df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0 & (df.garden_area != 1))]
+            df = df[(df.garden == 0) | ((df.garden == 1) & (df.garden_area != 0 & df.garden_area != 1))]
             # print("removed garden that exist = 0")
         elif x == 11: pass
         elif x == 12: pass
