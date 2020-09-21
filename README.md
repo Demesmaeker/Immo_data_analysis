@@ -7,7 +7,7 @@ The datas were scrapped from immoweb the 07/09/2020.
 For this second group project, we were 3 :
 - [Vincent Leurs](https://github.com/paradous) 
 - [Noah Alvarez Gonzales](https://github.com/NoahAlvarezGonzalez) 
-- [Demesmaeker Morgane](https://github.com/Demesmaeker) 
+- [Morgane Demesmaeker](https://github.com/Demesmaeker) 
 
 
 ### Methodology
