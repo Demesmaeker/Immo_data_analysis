@@ -71,6 +71,31 @@ apart_province_garden.plot.bar(x = 'province',
 
 
 
+house_loc_terr_area = locality_home_terr_area[locality_home_terr_area['type_of_property'] == 'house']
+house_loc_terr_area = house_loc_terr_area.groupby('province').terrace_area.describe()
+house_loc_terr_area.reset_index(level=0, inplace=True)
+house_loc_terr_area
+
+house_loc_terr_area.plot.bar(x = 'province', 
+                        y = ['min', 'mean', '75%'],
+                       figsize=(15,10),
+                       title="min, mean and 75% of the house's terrace's area by province")
+
+
+apart_loc_terr_area = locality_terrace[locality_terrace['type_of_property'] == 'apartment']
+apart_loc_terr_area = apart_loc_terr_area.groupby('province').terrace_area.describe()
+apart_loc_terr_area.reset_index(level=0, inplace=True)
+apart_loc_terr_area
+
+
+apart_loc_terr_area.plot.bar(x = 'province', 
+                        y = ['min', 'mean', '75%'],
+                       figsize=(15,10),
+                       title="min, mean and 75% of the apartment's terrace's area by province")
+
+
+
+
 
 house_bedrooms_province.plot.bar(x = 'Number of bedrooms', 
                                 y = ['Anvers', 
