@@ -27,7 +27,44 @@ for i in range(2, len(dataframes)):
 
 
 
+house_loc_garden = locality_garden[locality_garden['type_of_property'] == 'house']
+house_loc_garden_0 = house_loc_garden[house_loc_garden['garden'] == 0].groupby('province').fully_equipped_kitchen.agg(['count'])
+house_loc_garden_1 = house_loc_garden[house_loc_garden['garden'] == 1].groupby('province').fully_equipped_kitchen.agg(['count'])
 
+house_loc_garden_0.reset_index(level=0, inplace=True)
+house_loc_garden_0 = house_loc_garden_0.rename(columns={'count':'No garden'})
+house_loc_garden_1.reset_index(level=0, inplace=True)
+house_loc_garden_1 = house_loc_garden_1.rename(columns={'count':'Garden'})
+
+house_province_garden = pd.merge(house_loc_garden_0, house_loc_garden_1, how = 'outer', on='province')
+
+house_province_garden
+
+
+house_province_garden.plot.bar(x = 'province', 
+                       y = ['Garden', 'No garden'], 
+                       figsize=(15,10), 
+                       title="Presence of an aparment's garden by province")
+
+
+apart_loc_garden = locality_garden[locality_garden['type_of_property'] == 'apartment']
+apart_loc_garden_0 = apart_loc_garden[apart_loc_garden['garden'] == 0].groupby('province').fully_equipped_kitchen.agg(['count'])
+apart_loc_garden_1 = apart_loc_garden[apart_loc_garden['garden'] == 1].groupby('province').fully_equipped_kitchen.agg(['count'])
+
+apart_loc_garden_0.reset_index(level=0, inplace=True)
+apart_loc_garden_0 = apart_loc_garden_0.rename(columns={'count':'No garden'})
+apart_loc_garden_1.reset_index(level=0, inplace=True)
+apart_loc_garden_1 = apart_loc_garden_1.rename(columns={'count':'Garden'})
+
+apart_province_garden = pd.merge(apart_loc_garden_0, apart_loc_garden_1, how = 'outer', on='province')
+
+apart_province_garden
+
+
+apart_province_garden.plot.bar(x = 'province', 
+                       y = ['Garden', 'No garden'], 
+                       figsize=(15,10), 
+                       title="Presence of an aparment's garden by province")
 
 
 
